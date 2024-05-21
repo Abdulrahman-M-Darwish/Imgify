@@ -20,6 +20,7 @@ if (!cached) {
 export const connectToDatabase = async () => {
 	if (cached.conn) return cached.conn;
 	if (!DB_URL || DB_NAME) throw new Error("Database Credentials Not Defined");
+	console.log("connecting...")
 	cached.promise =
 		cached.promise ||
 		mongoose.connect(DB_URL, { dbName: DB_NAME, bufferCommands: false });

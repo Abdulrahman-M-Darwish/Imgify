@@ -9,6 +9,8 @@ import { handleError } from "../utils";
 // CREATE
 export async function createUser(user: CreateUserParams) {
 	try {
+		console.log("creating user");
+
 		await connectToDatabase();
 
 		const newUser = await User.create(user);
@@ -22,6 +24,8 @@ export async function createUser(user: CreateUserParams) {
 // READ
 export async function getUserById(userId: string) {
 	try {
+		console.log("getting user");
+
 		await connectToDatabase();
 
 		const user = await User.findOne({ clerkId: userId });
@@ -37,6 +41,7 @@ export async function getUserById(userId: string) {
 // UPDATE
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
 	try {
+		console.log("update user");
 		await connectToDatabase();
 
 		const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
